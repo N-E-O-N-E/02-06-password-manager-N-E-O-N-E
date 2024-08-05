@@ -14,14 +14,13 @@ class Tresor {
     private let masterpassword: String
     var tresorItemsList: [TresorItem] = []
     
-    init(masterpassword: String, tresorItemsList: [TresorItem]) {
+    init(masterpassword: String) {
         self.masterpassword = masterpassword
-        self.tresorItemsList = tresorItemsList
     }
     
     func addItem(_ item: TresorItem...) {
         tresorItemsList.append(contentsOf: item)
-    }
+    } //EndOfFunc
     
     func printItems(Passwort p: String) {
         
@@ -34,14 +33,16 @@ class Tresor {
          Domain  \(elements.url)
     Nutzernamen  \(elements.username)
        Passwort  \(elements.password)
-
+    
     """)
             }
             
         } else {
             print("Falsches Masterpasswort!")
         }
-    }
+        
+    } //EndOfFunc
+    
 }
 
 
