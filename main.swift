@@ -34,8 +34,9 @@ Treffen Sie eine Auswahl
 
     1) Neues Element in Tresor anlegen
     2) Tresorinhalt ausgeben
+    3) Website suchen
 
-    3) Programm beenden
+    4) Programm beenden
 
 """)
 }
@@ -66,8 +67,12 @@ repeat {
             print("Tresordaten ausgeben!\n")
             print("Bitte gib das Masterpasswort des Tresors ein: ")
             meinTresor.printItems(Passwort: readLine()!)
-            
         case 3:
+            print("Bitte die URL des Datensatzes ein den du suchst: ")
+            meinTresor.suche(nachWebsite: readLine()!)
+            
+    
+        case 4:
             print("Programm wird beendet!")
             menueStatus = false
             //exit(0)

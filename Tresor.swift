@@ -43,6 +43,36 @@ class Tresor {
         
     } //EndOfFunc
     
+    
+// 1.5. BONUS Aufgabe
+    
+    func suche(nachWebsite website: String) {
+        if let ergebnis = sucheWebsite(website: website, index: 0) {
+            print("""
+    Ergebnis gefunden! \(ergebnis)
+    Website:  \(meinTresor.tresorItemsList[ergebnis].url)
+    Username: \(meinTresor.tresorItemsList[ergebnis].username)
+    Passwort: \(meinTresor.tresorItemsList[ergebnis].password)
+    """)
+        }
+        else {
+            print("Eintrag nicht gefunden")
+        }
+    }
+    
+    private func sucheWebsite(website: String, index: Int) -> Int? {
+        
+        if index < tresorItemsList.count {
+            return nil
+        }
+        
+        if website == tresorItemsList[index].url {
+            return index
+        }
+        else {
+            return sucheWebsite(website: website, index: index + 1)
+        }
+    }
 }
 
 
