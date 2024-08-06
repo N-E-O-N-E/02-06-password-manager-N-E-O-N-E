@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Mindestanforderungen
+// Mindestanforderungen Montag
 
 // Tresor erstellen
 var meinTresor = Tresor(masterpassword: "admin")
@@ -16,15 +16,24 @@ var meinTresor = Tresor(masterpassword: "admin")
 meinTresor.tresorItemsList.append(contentsOf: ItemList)
 
 // Einzelnes Item übergeben
-meinTresor.addItem(TresorItem(id: UUID(), url: "www.web.de", username: "webUser", password: "6789"))
-
+meinTresor.tresorItemsList.append(TresorItem(id: UUID(), url: "www.web.de", username: "webUser", password: "6789"))
 /*
 print("Bitte gib das Masterpasswort des Tresors ein: ")
 meinTresor.printItems(Passwort: readLine()!)
 */
 
+// Aufgabe 2.1 Dienstag
+// Wurde auch in Menü übernommen von Aufgabe 1.4
+var neuesItem = TresorItem.fuehreAus(TresorItem(id: UUID(), url: "www.microsoft.de", username: "microsoftUser", password: "090909"))
 
-// Weiterführende 1.4
+neuesItem(druckeBeschreibung)
+neuesItem(druckeSpeicherInfo)
+
+// Aufgabe 2.2
+passwordLength("Test")
+
+
+// Weiterführende 1.4 Montag
 
 func menue() {
     print("""
@@ -34,11 +43,13 @@ func menue() {
 
 Treffen Sie eine Auswahl
 
-    1) Neues Element speichern
-    2) Alle Elemente ausgeben
-    3) Element nach Website suchen
+    1) Neu anlegen
+    2) Alle ausgeben
+    3) Website suchen
+    4) Username suchen
+    5) Passwörter checken
 
-    4) Programm beenden
+    6) Programm beenden
 
 """)
 }
@@ -63,7 +74,11 @@ repeat {
             print("Geben Sie das Passwort ein:")
             let newPasswort = readLine()!
             
-            meinTresor.addItem(TresorItem(id: UUID(), url: newURL, username: newUsername, password: newPasswort))
+            let addElement = TresorItem(id: UUID(), url: newURL, username: newUsername, password: newPasswort)
+            meinTresor.addItem(addElement)
+            addElement.fuehreAus(aktion: druckeBeschreibung)
+            addElement.fuehreAus(aktion: druckeSpeicherInfo)
+            
             
         case 2: // alle in der Liste Ausgeben
             print("Tresordaten ausgeben!\n")
@@ -74,6 +89,36 @@ repeat {
             meinTresor.suche(nachWebsite: readLine()!)
             
         case 4:
+            
+            // Aufgabe 2.3 Weiterführend
+            
+            print("Gib den gesuchten Nutzername ein: ")
+            let eingabe = readLine()!
+            
+            for item in meinTresor.tresorItemsList {
+            
+                if checkUsername(item, eingabe) {
+                    print("Nutzer '\(item.username)' wurde gefunden!\n")
+                }
+            }
+     
+        case 5:
+            
+            // Aufgabe 2.4 Bonus
+            
+            print("Passwort-Check auf Mindestlänge!")
+            
+            for item in meinTresor.tresorItemsList {
+            
+                if checkPasswortLength(item) {
+                    print("🟢 \(item.url)")
+                } else {
+                    print("🔴 \(item.url)")
+                }
+            }
+     
+            
+        case 6:
             print("Programm wird beendet!")
             menueStatus = false
             //exit(0)
@@ -86,4 +131,7 @@ repeat {
     }
     
 } while menueStatus
+
+
+
 

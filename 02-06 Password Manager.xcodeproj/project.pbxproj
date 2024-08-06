@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE1B2D0A2C60AB8700249AE2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B2D092C60AB8700249AE2 /* main.swift */; };
+		FA0485C82C623994005062AE /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0485C72C623994005062AE /* Closures.swift */; };
 		FAA67F332C60F6900049E65B /* TresorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA67F322C60F6900049E65B /* TresorItem.swift */; };
 		FAA67F352C60F7140049E65B /* Tresor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA67F342C60F7140049E65B /* Tresor.swift */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		CE1B2D062C60AB8700249AE2 /* 02-06 Password Manager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-06 Password Manager"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1B2D092C60AB8700249AE2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FA0485C72C623994005062AE /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		FAA67F322C60F6900049E65B /* TresorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TresorItem.swift; sourceTree = "<group>"; };
 		FAA67F342C60F7140049E65B /* Tresor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tresor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA67F322C60F6900049E65B /* TresorItem.swift */,
+				FA0485C72C623994005062AE /* Closures.swift */,
 				FAA67F342C60F7140049E65B /* Tresor.swift */,
 				CE1B2D092C60AB8700249AE2 /* main.swift */,
 				CE1B2D072C60AB8700249AE2 /* Products */,
@@ -119,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1B2D0A2C60AB8700249AE2 /* main.swift in Sources */,
+				FA0485C82C623994005062AE /* Closures.swift in Sources */,
 				FAA67F332C60F6900049E65B /* TresorItem.swift in Sources */,
 				FAA67F352C60F7140049E65B /* Tresor.swift in Sources */,
 			);
