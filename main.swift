@@ -11,8 +11,10 @@ import Foundation
 
 // Tresor erstellen
 var meinTresor = Tresor(masterpassword: "admin")
+
 // Liste an Items übergeben
 meinTresor.tresorItemsList.append(contentsOf: ItemList)
+
 // Einzelnes Item übergeben
 meinTresor.addItem(TresorItem(id: UUID(), url: "www.web.de", username: "webUser", password: "6789"))
 
@@ -32,9 +34,9 @@ func menue() {
 
 Treffen Sie eine Auswahl
 
-    1) Neues Element in Tresor anlegen
-    2) Tresorinhalt ausgeben
-    3) Website suchen
+    1) Neues Element speichern
+    2) Alle Elemente ausgeben
+    3) Element nach Website suchen
 
     4) Programm beenden
 
@@ -71,7 +73,6 @@ repeat {
             print("Bitte die URL des Datensatzes ein den du suchst: ")
             meinTresor.suche(nachWebsite: readLine()!)
             
-    
         case 4:
             print("Programm wird beendet!")
             menueStatus = false

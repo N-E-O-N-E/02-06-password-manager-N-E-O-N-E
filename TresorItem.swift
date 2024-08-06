@@ -25,4 +25,13 @@ var tresorItem4 = TresorItem(id: UUID(), url: "www.1und1.de", username: "1und1Us
 var tresorItem5 = TresorItem(id: UUID(), url: "www.instagram.de", username: "instagramUser", password: "5678")
 
 
-var ItemList = [tresorItem1, tresorItem2, tresorItem3, tresorItem4, tresorItem5]
+// Alle Einträge werden hier für das Programm gespeichert
+var ItemList = [
+    
+    tresorItem1,
+    tresorItem2,
+    tresorItem3,
+    tresorItem4,
+    tresorItem5
+    
+]
