@@ -32,7 +32,7 @@ let passwordLength: (String) -> () = { (passwort) -> () in
     }
 }
 
-// Aufgabe 2.3
+// Aufgabe 2.3 Weiterführend
 
 let checkUsername: (TresorItem, String?) -> Bool = { ( tresorItem , username) -> Bool in
     
@@ -43,7 +43,7 @@ let checkUsername: (TresorItem, String?) -> Bool = { ( tresorItem , username) ->
     }
 }
 
-// Aufgabe 2.4
+// Aufgabe 2.4 Bonus
 
 let checkPasswortLength: (TresorItem) -> Bool = { (tresorItem) -> Bool in
     

@@ -29,6 +29,10 @@ var neuesItem = TresorItem.fuehreAus(TresorItem(id: UUID(), url: "www.microsoft.
 neuesItem(druckeBeschreibung)
 neuesItem(druckeSpeicherInfo)
 
+var weiteresItem = TresorItem(id: UUID(), url: "URL10", username: "user10", password: "1010")
+weiteresItem.fuehreAus(aktion: druckeBeschreibung)
+weiteresItem.fuehreAus(aktion: druckeSpeicherInfo)
+
 // Aufgabe 2.2
 passwordLength("Test")
 
