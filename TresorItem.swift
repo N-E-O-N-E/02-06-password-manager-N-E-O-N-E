@@ -25,7 +25,6 @@ struct TresorItem {
     }
     
     func fuehreAus(aktion: () -> ()) {
-        
         aktion()
     }
 
@@ -36,6 +35,7 @@ var tresorItem2 = TresorItem(id: UUID(), url: "www.youtube.de", username: "youtu
 var tresorItem3 = TresorItem(id: UUID(), url: "www.google.de", username: "googleUser", password: "pass3456")
 var tresorItem4 = TresorItem(id: UUID(), url: "www.1und1.de", username: "1und1User", password: "pass4567")
 var tresorItem5 = TresorItem(id: UUID(), url: "www.instagram.de", username: "instagramUser", password: "pass5678")
+var tresorItem6 = TresorItem(id: UUID(), url: "www.tiktoc.de", username: "tictokUser", password: "121212")
 
 
 // Alle Einträge werden hier für das Programm gespeichert
@@ -45,6 +45,7 @@ var ItemList = [
     tresorItem2,
     tresorItem3,
     tresorItem4,
-    tresorItem5
+    tresorItem5,
+    tresorItem6
     
 ]

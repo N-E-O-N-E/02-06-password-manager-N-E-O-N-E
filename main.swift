@@ -17,6 +17,7 @@ meinTresor.tresorItemsList.append(contentsOf: ItemList)
 
 // Einzelnes Item übergeben
 meinTresor.tresorItemsList.append(TresorItem(id: UUID(), url: "www.web.de", username: "webUser", password: "6789"))
+
 /*
 print("Bitte gib das Masterpasswort des Tresors ein: ")
 meinTresor.printItems(Passwort: readLine()!)
@@ -40,6 +41,7 @@ passwordLength("Test")
 // Weiterführende 1.4 Montag
 
 func menue() {
+   
     print("""
 
 ####### TRESOR MENÜ #######
@@ -47,13 +49,16 @@ func menue() {
 
 Treffen Sie eine Auswahl
 
-    1) Neu anlegen
-    2) Alle ausgeben
+    1) Neuer Eintrag anlegen
+    2) Einträge ausgeben
     3) Website suchen
     4) Username suchen
-    5) Passwörter checken
+    5) Passwortlänge prüfen
+    6) Einräge sortiert ausgeben
+    7) Filtern nach URL
+    8) Alle ausgeben mit forEach und Sorted
 
-    6) Programm beenden
+    9) Programm beenden
 
 """)
 }
@@ -89,7 +94,7 @@ repeat {
             print("Bitte gib das Masterpasswort des Tresors ein: ")
             meinTresor.printItems(Passwort: readLine()!)
         case 3:
-            print("Bitte die URL des Datensatzes ein den du suchst: ")
+            print("Bitte geben Sie die URL des gesuchten Datensatzes ein: ")
             meinTresor.suche(nachWebsite: readLine()!)
             
         case 4:
@@ -121,8 +126,33 @@ repeat {
                 }
             }
      
-            
         case 6:
+            // 3.1
+            meinTresor.sortItems()
+            
+            print("Tresordaten sortiert ausgeben!\n")
+            print("Bitte gib das Masterpasswort des Tresors ein: ")
+            meinTresor.printItems(Passwort: readLine()!)
+            
+        case 7:
+            // 3.2
+            print("Domain zur Suche eingeben: \n")
+            let result = meinTresor.filterItems(filterNach: readLine()!)
+            
+            print("""
+                  
+                  UUID: \(result[0].id)
+                  User: \(result[0].username)
+                  URL:  \(result[0].url)
+                  """)
+            
+        case 8:
+            // 3.3
+            print("Tresordaten sortiert ausgeben mit forEach und sorted!\n")
+            print("Bitte gib das Masterpasswort des Tresors ein: ")
+            meinTresor.printItemsForEach(Passwort: readLine()!)
+            
+        case 9:
             print("Programm wird beendet!")
             menueStatus = false
             //exit(0)

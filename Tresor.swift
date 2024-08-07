@@ -44,6 +44,30 @@ class Tresor {
         
     } //EndOfFunc
     
+    // Aufgabe 3.3 ------------------------------------------------------------
+    
+    func printItemsForEach(Passwort p: String) {
+        
+        if p == meinTresor.masterpassword {
+            print("\nMasterpasswort korrekt! \n")
+            
+            tresorItemsList.sorted{$0.url.lowercased() < $1.url.lowercased()}.forEach { elements in
+                print("""
+      AccountID  \(elements.id)
+         Domain  \(elements.url)
+    Nutzernamen  \(elements.username)
+       Passwort  \(elements.password)
+    
+    """)
+            }
+             
+            
+        } else {
+            print("Falsches Masterpasswort!")
+        }
+        
+    } //EndOfFunc
+    
     
 // 1.5. BONUS Aufgabe
     
@@ -79,6 +103,25 @@ class Tresor {
             return sucheWebsite(website: website, index: index + 1)
         }
     }
+    
+    // 3.1. Tresoreinträge sortieren
+    
+    func sortItems() {
+       
+        tresorItemsList.sort { $0.url < $1.url }
+        
+    }
+    
+    // 3.2
+    func filterItems(filterNach: String) -> [TresorItem] {
+        return tresorItemsList.filter { $0.url.contains(filterNach) }
+    }
+    
+    
 }
+    
+
+    
+
 
 
