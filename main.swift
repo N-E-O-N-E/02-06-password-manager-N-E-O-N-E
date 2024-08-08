@@ -52,8 +52,9 @@ Treffen Sie eine Auswahl
     9) Neuer Eintrag über mit ButtonClosure
    10) Neuer Eintrag über mit ButtonClosure und changeAction
    11) Erreichbarkeit der Domains prüfen
+   12) Masterpasswort ändern - Bonus
     
-   12) Programm beenden
+   13) Programm beenden
 
 """)
 }
@@ -221,10 +222,18 @@ repeat {
                 
             }
         
-            
-
-            
         case 12:
+            
+            print("Zum Ändern gib das alte und das neue Passwort ein!")
+            
+            print("Wie ist das aktuelle Masterpasswort: ", terminator: "")
+            let inputOldPW = readLine()!
+            print("Wie soll das neue Masterpasswort sein: ", terminator: "")
+            let inputNewPW = readLine()!
+            
+            meinTresor.changeMasterpassword(oldPW: inputOldPW, newPW: inputNewPW)
+            
+        case 13:
             print("Programm wird beendet!")
             menueStatus = false
             //exit(0)

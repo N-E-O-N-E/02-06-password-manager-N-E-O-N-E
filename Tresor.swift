@@ -11,7 +11,7 @@ import Foundation
 
 class Tresor {
     
-    private let masterpassword: String
+    private var masterpassword: String
     var tresorItemsList: [TresorItem] = []
     // Liste wird in der Main gefüllt beim Instanzieren des Tresors
     
@@ -117,6 +117,18 @@ class Tresor {
         return tresorItemsList.filter { $0.url.contains(filterNach) }
     }
     
+    // Aufgabe 4.4 Masterpasswort ändern
+    
+    func changeMasterpassword(oldPW: String, newPW: String) {
+        
+        if oldPW == masterpassword {
+            print("Das Kennwort war korrekt!")
+            masterpassword = newPW
+        } else {
+            print("Das eingebebene Passwort war nicht korrekt!")
+        }
+        
+    }
     
 }
     
