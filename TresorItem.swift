@@ -17,15 +17,19 @@ struct TresorItem {
     let username: String
     let password: String
     
-    init(id: UUID, url: String, username: String, password: String) {
-        self.id = id
-        self.url = url
-        self.username = username
-        self.password = password
-    }
-    
     func fuehreAus(aktion: () -> ()) {
         aktion()
+    }
+    
+    // Aufgabe 4.2
+    
+    func checkConnection(checkURL: (Bool) -> Void)  {
+        
+        print("Die Verbidnung zur Website \(url) wird geprüft!")
+        checkURL(Bool.random())
+        
+        Thread.sleep(forTimeInterval: 5)
+
     }
 
 }

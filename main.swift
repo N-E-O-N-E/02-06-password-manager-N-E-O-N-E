@@ -1,10 +1,3 @@
-//
-//  main.swift
-//  02-06 Password Manager
-//
-//  Created by Fabian Moreno on 05.08.24.
-//
-
 import Foundation
 
 // Mindestanforderungen Montag
@@ -37,7 +30,6 @@ weiteresItem.fuehreAus(aktion: druckeSpeicherInfo)
 // Aufgabe 2.2
 passwordLength("Test")
 
-
 // Weiterführende 1.4 Montag
 
 func menue() {
@@ -57,8 +49,11 @@ Treffen Sie eine Auswahl
     6) Einräge sortiert ausgeben
     7) Filtern nach URL
     8) Alle ausgeben mit forEach und Sorted
-
-    9) Programm beenden
+    9) Neuer Eintrag über mit ButtonClosure
+   10) Neuer Eintrag über mit ButtonClosure und changeAction
+   11) Erreichbarkeit der Domains prüfen
+    
+   12) Programm beenden
 
 """)
 }
@@ -74,6 +69,7 @@ repeat {
         switch auswahl {
             
         case 1: // Neues Item übergeben
+            
             print("Neues Tresor Item Anlegen\n")
             
             print("Geben Sie die URL ein:")
@@ -153,6 +149,82 @@ repeat {
             meinTresor.printItemsForEach(Passwort: readLine()!)
             
         case 9:
+            
+            // Aufgabe 4.1
+            
+            var btnAdd = Button(titel: "Eintrag hinzufügen") {
+                
+                print("Geben Sie die URL ein:", terminator: "")
+                let newURL = readLine()!
+                print("Geben Sie den Username ein:", terminator: "")
+                let newUsername = readLine()!
+                print("Geben Sie das Passwort ein:", terminator: "")
+                let newPasswort = readLine()!
+                
+                let addElement = TresorItem(id: UUID(), url: newURL, username: newUsername, password: newPasswort)
+                meinTresor.tresorItemsList.append(addElement)
+                
+            }
+            
+             btnAdd.klick()
+            
+        case 10:
+            
+            // Aufgabe 4.3
+            
+            var btnAdd = Button(titel: "Eintrag hinzufügen") {
+                
+                print("Geben Sie die URL ein:", terminator: "")
+                let newURL = readLine()!
+                print("Geben Sie den Username ein:", terminator: "")
+                let newUsername = readLine()!
+                print("Geben Sie das Passwort ein:", terminator: "")
+                let newPasswort = readLine()!
+                
+                let addElement = TresorItem(id: UUID(), url: newURL, username: newUsername, password: newPasswort)
+                meinTresor.tresorItemsList.append(addElement)
+                
+            }
+            
+            
+            btnAdd.changeAction {
+                    
+                    print("Eingabe über mit changeAction:\n")
+                
+                    print("Domain:", terminator: "")
+                    let newURL = readLine()!
+                    print("Username:", terminator: "")
+                    let newUsername = readLine()!
+                    print("Passwort:", terminator: "")
+                    let newPasswort = readLine()!
+                    
+                    let addElement = TresorItem(id: UUID(), url: newURL, username: newUsername, password: newPasswort)
+                    meinTresor.tresorItemsList.append(addElement)
+            }
+            
+            
+            
+        case 11:
+            
+            //let newItem = TresorItem(id: UUID(), url: "TestURL", username: "TestUser", password: "TestPasswort")
+            
+            meinTresor.tresorItemsList.forEach() { elements in
+                
+                elements.checkConnection() { connected in
+                    
+                    if connected {
+                        print("Webseite ist erreichbar!")
+                    } else {
+                        print("Webseite ist nicht erreichbar!")
+                    }
+                }
+                
+            }
+        
+            
+
+            
+        case 12:
             print("Programm wird beendet!")
             menueStatus = false
             //exit(0)
@@ -165,7 +237,5 @@ repeat {
     }
     
 } while menueStatus
-
-
 
 
