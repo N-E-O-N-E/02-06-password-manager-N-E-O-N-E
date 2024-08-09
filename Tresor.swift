@@ -11,12 +11,21 @@ import Foundation
 
 class Tresor {
     
-    private var masterpassword: String
+    private var masterpassword: String {
+        didSet {
+            observer()
+        }
+    }
     var tresorItemsList: [TresorItem] = []
     // Liste wird in der Main gefüllt beim Instanzieren des Tresors
     
-    init(masterpassword: String) {
+    // Aufgabe 4.4.
+    
+    let observer: () -> ()
+    
+    init(masterpassword: String, observer: @escaping () -> ()) {
         self.masterpassword = masterpassword
+        self.observer = observer
     }
     
     func addItem(_ item: TresorItem...) {
@@ -124,8 +133,10 @@ class Tresor {
         if oldPW == masterpassword {
             print("Das Kennwort war korrekt!")
             masterpassword = newPW
+            sleep(2)
         } else {
             print("Das eingebebene Passwort war nicht korrekt!")
+            sleep(2)
         }
         
     }

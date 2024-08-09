@@ -26,10 +26,12 @@ struct TresorItem {
     func checkConnection(checkURL: (Bool) -> Void)  {
         
         print("Die Verbidnung zur Website \(url) wird geprüft!")
+        
+        //sleep(5)
+        Thread.sleep(forTimeInterval: 5)
+        
         checkURL(Bool.random())
         
-        Thread.sleep(forTimeInterval: 5)
-
     }
 
 }

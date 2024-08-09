@@ -3,7 +3,9 @@ import Foundation
 // Mindestanforderungen Montag
 
 // Tresor erstellen
-var meinTresor = Tresor(masterpassword: "admin")
+var meinTresor = Tresor(masterpassword: "admin") {
+    print("Das Password wurde geändert!")
+}
 
 // Liste an Items übergeben
 meinTresor.tresorItemsList.append(contentsOf: ItemList)
@@ -153,7 +155,7 @@ repeat {
             
             // Aufgabe 4.1
             
-            var btnAdd = Button(titel: "Eintrag hinzufügen") {
+            let btnAdd = Button(titel: "Eintrag hinzufügen") {
                 
                 print("Geben Sie die URL ein:", terminator: "")
                 let newURL = readLine()!
