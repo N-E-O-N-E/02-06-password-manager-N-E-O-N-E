@@ -3,7 +3,7 @@ import Foundation
 // Mindestanforderungen Montag
 
 // Tresor erstellen
-var meinTresor = Tresor(masterpassword: "admin") {
+var meinTresor = Tresor(masterpassword: "admin") { _ in
     print("Das Password wurde geändert!")
 }
 

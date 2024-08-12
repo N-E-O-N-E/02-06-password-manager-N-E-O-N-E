@@ -13,7 +13,7 @@ class Tresor {
     
     private var masterpassword: String {
         didSet {
-            observer()
+            observer(masterpassword)
         }
     }
     var tresorItemsList: [TresorItem] = []
@@ -21,9 +21,9 @@ class Tresor {
     
     // Aufgabe 4.4.
     
-    let observer: () -> ()
+    let observer: (String) -> ()
     
-    init(masterpassword: String, observer: @escaping () -> ()) {
+    init(masterpassword: String, observer: @escaping (String) -> ()) {
         self.masterpassword = masterpassword
         self.observer = observer
     }
